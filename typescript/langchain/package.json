@@ -1,0 +1,27 @@
+{
+  "name": "learn-claude-code-langchain",
+  "version": "0.1.0",
+  "description": "LangChain implementations of Claude Code learning series",
+  "main": "index.js",
+  "scripts": {
+    "v0": "tsx src/v0_bash_agent.ts",
+    "v0-mini": "tsx src/v0_bash_agent_mini.ts",
+    "v1": "tsx src/v1_basic_agent.ts",
+    "v2": "tsx src/v2_todo_agent.ts",
+    "v3": "tsx src/v3_subagent.ts",
+    "v4": "tsx src/v4_skills_agent.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@langchain/openai": "^0.3.11",
+    "@langchain/core": "^0.3.18",
+    "langchain": "^0.3.5",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}
