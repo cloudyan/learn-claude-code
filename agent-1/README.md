@@ -1,20 +1,51 @@
-# 手写 Claude Code - 初学者入门
+# mini-claude-code - 前端小白手写 AI Agent 教程
 
-> 一杯奶茶钱，从 0 到 1 手写一个 AI Agent
+> 从零开始，手写一个自己的 AI 编程助手
 
 ---
 
-## 目录
+## 教程定位
 
-| 章节 | 标题 | 状态 |
-|------|------|------|
-| 00 | [前言：你也能手写一个 AI Agent](./00-前言.md) | ✅ |
-| 01 | [手写第一个 Agent —— v1 模型即代理](./01-手写第一个Agent.md) | ✅ |
-| 02 | [让 Agent 有计划 —— v2 结构化规划](./02-让Agent有计划.md) | ✅ |
-| 03 | [分而治之 —— v3 子代理机制](./03-分而治之.md) | ✅ |
-| 04 | [知识外化 —— v4 Skills 机制](./04-知识外化.md) | ✅ |
-| 05 | [终极简化 —— v0 Bash 就是一切](./05-终极简化.md) | ✅ |
-| 06 | [总结与下一步](./06-总结与下一步.md) | ✅ |
+**目标读者**：前端开发者 / JavaScript 初学者
+- 会基本的 JS/TS 语法
+- 想理解 AI Agent 原理，而不只是调包
+- 希望从零手写，而非复制粘贴
+
+**技术栈**：TypeScript + OpenAI SDK（兼容国内模型）
+- 不需要复杂框架
+- 不需要 AI/ML 背景
+- 从第一行代码开始写
+
+---
+
+## 教程设计原则
+
+### 1. 渐进式复杂度
+从 v1（最实用）开始，逐步增加概念，最后用 v0（最极简）收尾证明核心。
+
+### 2. 手写优先
+- 不使用框架（LangChain 等）
+- 每个版本都是完整可运行的
+- 强调"为什么这么写"而非"怎么写"
+
+### 3. 实战导向
+- 每章都有可运行的代码
+- 配套 TypeScript 实现（`typescript/` 目录）
+- 支持国内模型（DeepSeek、智谱、百川等）
+
+---
+
+## 完整教程大纲
+
+| 章节 | 标题 | 核心概念 | 代码量 | 学习目标 |
+|------|------|----------|--------|----------|
+| **00** | **前言：你也能手写一个 AI Agent** | 建立认知框架 | - | 理解 Agent 本质 |
+| **01** | **手写第一个 Agent —— v1 模型即代理** | 4 核心工具 + 代理循环 | ~200 行 | 能写出基础 Agent |
+| **02** | **让 Agent 有计划 —— v2 结构化规划** | Todo 工具 + 显式计划 | ~300 行 | Agent 能做复杂任务 |
+| **03** | **分而治之 —— v3 子代理机制** | Task 工具 + 上下文隔离 | ~450 行 | 能处理多步骤任务 |
+| **04** | **知识外化 —— v4 Skills 机制** | Skill 工具 + 领域知识 | ~550 行 | Agent 变成专家 |
+| **05** | **终极简化 —— v0 Bash 就是一切** | 1 工具 + 递归子代理 | ~50 行 | 理解核心极简性 |
+| **06** | **总结与下一步** | 回顾与扩展 | - | 知道往哪走 |
 
 ---
 
@@ -32,18 +63,22 @@
 
 ## 配套代码
 
-提供 **TypeScript**（主版本）和 **Python**（备用）两个版本：
-
-### TypeScript 版本（主版本，推荐）
+### TypeScript 版本（推荐，主版本）
 完整可运行代码在 `typescript/` 目录：
+
 ```bash
 cd agent-1/typescript
 npm install
+
+# 运行各版本
 npm run v1   # 基础版（推荐入门）
 npm run v2   # Todo 版
 npm run v3   # 子代理版
 npm run v4   # Skills 版
 npm run v0   # 终极简化版
+
+# 类型检查
+npm run type-check
 ```
 
 ### Python 版本（备用）
@@ -54,48 +89,90 @@ npm run v0   # 终极简化版
 - `python/v4_skills_agent.py` - Skills 版
 - `python/v0_bash_agent.py` - 终极简化版
 
-### TypeScript 版本（前端开发者）
-在 `typescript/` 目录：
-```bash
-cd agent-1/typescript
-npm install
-npm run v0   # 终极简化版
-npm run v1   # 基础版
-npm run v2   # Todo 版
-npm run v3   # 子代理版
-npm run v4   # Skills 版
+---
+
+## 章节写作规范
+
+### 每章结构
+1. **先理解** - 建立概念认知（不写代码）
+2. **核心洞察** - 提炼关键思想
+3. **现在手写** - 从零开始写代码
+4. **运行测试** - 验证功能
+5. **下一步** - 引出下一章
+
+### 代码风格
+- TypeScript 严格类型检查
+- 中文注释说明设计思路
+- 每个工具独立文件
+- 统一错误处理模式
+
+### 教学技巧
+- 先展示完整可运行代码，再解释
+- 用对比方式说明改进点（v1 vs v2）
+- 强调"为什么"而非"是什么"
+
+---
+
+## 项目结构
+
+```
+agent-1/
+├── README.md                    # 本文件 - 教程规划与大纲
+├── 00-前言.md                   # 第 0 章
+├── 01-手写第一个Agent.md        # 第 1 章
+├── 02-让Agent有计划.md          # 第 2 章
+├── 03-分而治之.md               # 第 3 章
+├── 04-知识外化.md               # 第 4 章
+├── 05-终极简化.md               # 第 5 章
+├── 06-总结与下一步.md           # 第 6 章
+├── typescript/                  # TypeScript 实现（主版本）
+│   ├── src/
+│   │   ├── v0_bash_agent.ts
+│   │   ├── v1_basic_agent.ts
+│   │   ├── v2_todo_agent.ts
+│   │   ├── v3_subagent.ts
+│   │   ├── v4_skills_agent.ts
+│   │   ├── clients/
+│   │   ├── tools/
+│   │   └── utils/
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── AGENT.md
+└── python/                      # Python 实现（备用）
+    ├── v0_bash_agent.py
+    ├── v1_basic_agent.py
+    ├── ...
+    └── README.md
 ```
 
-直接使用 OpenAI SDK（不是 ai-sdk），保持和 Python 版本完全相同的架构和教学风格。
+---
+
+## 下一步计划
+
+### 内容完善
+- [ ] 检查各章节是否符合写作规范
+- [ ] 补充更多实战示例
+- [ ] 添加常见问题解答
+- [ ] 制作配套视频（可选）
+
+### 代码质量
+- [ ] 确保 TypeScript 版本 100% 可运行
+- [ ] 添加单元测试
+- [ ] 优化错误提示
+- [ ] 完善文档注释
+
+### 扩展内容
+- [ ] Web UI 界面
+- [ ] VS Code 插件
+- [ ] 更多 Skills 示例
+- [ ] 部署指南
+
 ---
 
 **工具让模型能做事，技能让模型知道怎么做。**
 
-
 ---
 
-## 重构与核对记录
+## 声明
 
-### 仅做的两个改动
-1. **Anthropic SDK → OpenAI SDK 兼容**
-   - 支持国内模型（DeepSeek、智谱、百川等）
-   - `baseURL` 可配置
-
-2. **结构变更（更清晰）+ TypeScript 语言**
-   - `clients/model.ts` - 统一配置
-   - `tools/bash.ts` 等 - 每个工具独立文件
-   - `utils/` - 工具函数
-
-### 功能 100% 对齐 Python 根目录版本
-
-| 项                     | 状态 |
-| ---------------------- | ---- |
-| 工具参数名对齐        | ✅   |
-| - `read_file(path, limit)` | ✅   |
-| - `write_file(path, content)` | ✅ |
-| - `edit_file(path, old_text, new_text)` | ✅ |
-| v2 TodoManager 验证    | ✅   |
-| INITIAL/NAG REMINDER   | ✅   |
-
-### 根目录 Python 保持不变
-根目录的原始 Python 代码（Anthropic SDK）保持原样，不做任何改动。
+这是一个独立的教育项目，与 Anthropic 无关。"Claude Code" 是 Anthropic 的商标。
