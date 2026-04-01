@@ -1,0 +1,1 @@
+export const DEFAULT_MAX_TOOL_OUTPUT = 20_000;

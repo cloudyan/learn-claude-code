@@ -1,0 +1,41 @@
+{
+  "name": "deepagents-tutorial",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:01": "pnpm --dir examples/01-what-is-a-coding-agent dev",
+    "dev:02": "pnpm --dir examples/02-how-to-choose-the-stack dev",
+    "dev:03": "pnpm --dir examples/03-first-agent dev",
+    "dev:04": "pnpm --dir examples/04-tool-calling dev",
+    "dev:05": "pnpm --dir examples/05-why-general-agents-fail-at-coding dev",
+    "dev:06": "pnpm --dir examples/06-minimum-capabilities dev",
+    "dev:07": "pnpm --dir examples/07-project-structure dev",
+    "dev:08": "pnpm --dir examples/08-why-deepagents dev",
+    "dev:09": "pnpm --dir examples/09-first-deep-coding-agent dev",
+    "dev:10": "pnpm --dir examples/10-planning dev",
+    "dev:11": "pnpm --dir examples/11-filesystem-context dev",
+    "dev:12": "pnpm --dir examples/12-subagents dev",
+    "dev:13": "pnpm --dir examples/13-project-knowledge dev",
+    "dev:14": "pnpm --dir examples/14-verification-loop dev",
+    "dev:15": "pnpm --dir examples/15-observability-and-control dev",
+    "dev:16": "pnpm --dir examples/16-when-to-use-langgraph dev",
+    "dev:17": "pnpm --dir examples/17-build-your-own-specialized-agent dev",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck:03": "tsc -p tsconfig.json --noEmit",
+    "typecheck:06": "tsc -p tsconfig.json --noEmit",
+    "typecheck:09": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@langchain/openai": "^1.4.1",
+    "deepagents": "^1.8.8",
+    "dotenv": "^16.4.5",
+    "langchain": "^1.2.39",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}

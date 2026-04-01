@@ -1,0 +1,9 @@
+{
+  "name": "@tutorial/15-observability-and-control",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.ts"
+  }
+}

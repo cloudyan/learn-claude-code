@@ -1,0 +1,9 @@
+{
+  "name": "@tutorial/16-when-to-use-langgraph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.ts"
+  }
+}

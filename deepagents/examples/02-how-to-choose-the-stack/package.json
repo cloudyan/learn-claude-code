@@ -1,0 +1,9 @@
+{
+  "name": "@tutorial/02-how-to-choose-the-stack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.ts"
+  }
+}

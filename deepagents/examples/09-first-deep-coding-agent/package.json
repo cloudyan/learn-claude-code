@@ -1,0 +1,20 @@
+{
+  "name": "@tutorial/09-first-deep-coding-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.ts"
+  },
+  "dependencies": {
+    "@langchain/openai": "^1.0.0",
+    "deepagents": "^1.8.8",
+    "dotenv": "^16.4.5",
+    "langchain": "^1.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}

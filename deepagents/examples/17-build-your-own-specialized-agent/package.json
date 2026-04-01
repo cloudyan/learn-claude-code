@@ -1,0 +1,9 @@
+{
+  "name": "@tutorial/17-build-your-own-specialized-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.ts"
+  }
+}
