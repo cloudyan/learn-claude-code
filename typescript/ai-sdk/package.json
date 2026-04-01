@@ -1,0 +1,36 @@
+{
+  "name": "learn-claude-code-typescript",
+  "version": "0.4.0",
+  "description": "TypeScript implementations of Claude Code learning series",
+  "main": "index.js",
+  "scripts": {
+    "v0": "tsx src/v0_bash_agent.ts",
+    "v0-mini": "tsx src/v0_bash_agent_mini.ts",
+    "v1": "tsx src/v1_basic_agent.ts",
+    "v2": "tsx src/v2_todo_agent.ts",
+    "v3": "tsx src/v3_subagent.ts",
+    "v4": "tsx src/v4_skills_agent.ts",
+    "dev": "tsx watch",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "claude",
+    "typescript"
+  ],
+  "author": "shareAI Lab",
+  "license": "MIT",
+  "dependencies": {
+    "@ai-sdk/openai": "^3.0.7",
+    "@ai-sdk/openai-compatible": "^2.0.4",
+    "ai": "^6.0.27",
+    "dotenv": "^16.4.5",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}
