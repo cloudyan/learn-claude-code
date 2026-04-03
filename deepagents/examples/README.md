@@ -1,92 +1,170 @@
-# Examples Layout
+# Examples Guide
 
-这个目录存放教程配套的示例。
+这个目录存放整套教程的配套示例。
 
-从现在开始，示例策略调整为：
+现在的目标很明确：
 
-- 每个章节至少有一个示例入口
-- 不是每个章节都必须立刻拥有完整可运行项目
-- 但每个章节都必须有一个明确的“示例落点”
+- `01-17` 每章都有一个示例目录
+- `01-17` 每章都可以直接运行
+- 主线关键章节保留更强的独立示例形态
 
-也就是说，`examples/` 会分成两层：
+也就是说，这里已经不是“少数 demo + 大量占位说明”，而是一套完整的章节示例入口。
 
-- `chapter-*` 风格的章节入口目录：保证每章都有示例
-- 少量真正独立可运行的项目目录：承载主线关键节点
+## 快速开始
 
-## 当前目录约定
+在仓库根目录执行：
 
-```text
-examples/
-  01-what-is-a-coding-agent/
-  02-how-to-choose-the-stack/
-  03-first-agent/
-  04-tool-calling/
-  05-why-general-agents-fail-at-coding/
-  06-minimum-capabilities/
-  07-project-structure/
-  08-why-deepagents/
-  09-first-deep-coding-agent/
-  10-planning/
-  11-filesystem-context/
-  12-subagents/
-  13-project-knowledge/
-  14-verification-loop/
-  15-observability-and-control/
-  16-when-to-use-langgraph/
-  17-build-your-own-specialized-agent/
-
-  03-first-agent/
-  06-minimum-capabilities/
-  09-first-deep-coding-agent/
+```bash
+cd deepagents
+cp .env.example .env
+npm install
 ```
 
-## 示例类型
+然后按章节运行：
 
-每章的示例入口现在都应该是可执行的。
+```bash
+npm run dev:01
+npm run dev:03
+npm run dev:09
+```
 
-不过可执行不等于复杂度完全相同：
+也可以传入自定义任务：
+
+```bash
+npm run dev:10 -- "请先给出计划，再说明你会如何阅读当前仓库的 README，不修改文件"
+```
+
+## 环境变量
+
+所有示例统一使用标准的 OpenAI 兼容环境变量：
+
+- `OPENAI_API_KEY`
+- `OPENAI_BASE_URL`
+- `MODEL_NAME`
+
+默认示例文件中的推荐值是：
+
+```text
+OPENAI_BASE_URL=https://opencode.ai/zen/v1
+MODEL_NAME=gpt-5-nona
+```
+
+## 运行方式
+
+每个章节目录都具备：
+
+- `README.md`
+- `package.json`
+- `src/index.ts`
+- `.env.example`
+- `tsconfig.json`
+
+因此有两种常用运行方式。
+
+在根目录运行：
+
+```bash
+cd deepagents
+npm run dev:07
+```
+
+在单章节目录运行：
+
+```bash
+cd deepagents/examples/07-project-structure
+node src/index.ts
+```
+
+## 示例分层
+
+虽然每章都能运行，但它们的复杂度并不完全相同。
 
 | 类型 | 说明 |
 |---|---|
-| 运行型示例 | 直接调用某一类 agent 完成章节任务 |
-| 复用型示例 | 章节入口复用已有主线能力，但仍可直接运行 |
-| 轻量型示例 | 任务更轻，偏说明或分析，但仍然可执行 |
+| 主线示例 | 真正承载主战场的核心示例 |
+| 复用示例 | 复用现有 agent 能力来说明新的章节主题 |
+| 轻量示例 | 更偏解释、比较、设计判断，但仍可执行 |
 
-## 当前主线示例
+## 推荐阅读与运行顺序
 
-- `03-first-agent/`
-  - 最小 `LangChain v1` agent
-- `06-minimum-capabilities/`
-  - 最小可用 coding agent
-- `09-first-deep-coding-agent/`
-  - 第一个 `Deep Agents` coding agent
+如果你想按教程主线走，最推荐这条顺序：
 
-## 章节示例映射
+1. `03-first-agent`
+2. `06-minimum-capabilities`
+3. `09-first-deep-coding-agent`
+4. `10-planning`
+5. `11-filesystem-context`
+6. `12-subagents`
 
-| 章节目录 | 当前类型 | 对应实现 |
+对应命令：
+
+```bash
+cd deepagents
+npm run dev:03
+npm run dev:06
+npm run dev:09
+npm run dev:10
+npm run dev:11
+npm run dev:12
+```
+
+## 主线示例
+
+这 3 个是整套教程目前最重要的主线示例：
+
+| 章节 | 目录 | 作用 |
 |---|---|---|
-| `01-what-is-a-coding-agent/` | 轻量型示例 | `basic agent` 概念说明任务 |
-| `02-how-to-choose-the-stack/` | 轻量型示例 | `basic agent` 选型对比任务 |
-| `03-first-agent/` | 运行型示例 | 本章独立示例 |
-| `04-tool-calling/` | 复用型示例 | 复用 `basic agent` 观察工具调用 |
-| `05-why-general-agents-fail-at-coding/` | 运行型示例 | `coding agent` 失败模式分析任务 |
-| `06-minimum-capabilities/` | 运行型示例 | 本章独立示例 |
-| `07-project-structure/` | 运行型示例 | `coding agent` 工程分层说明任务 |
-| `08-why-deepagents/` | 轻量型示例 | `basic agent` 抽象升级解释任务 |
-| `09-first-deep-coding-agent/` | 运行型示例 | 本章独立示例 |
-| `10-planning/` | 运行型示例 | `deep agent` planning 任务 |
-| `11-filesystem-context/` | 运行型示例 | `deep agent` 仓库搜索任务 |
-| `12-subagents/` | 运行型示例 | `deep agent` 子代理源码阅读任务 |
-| `13-project-knowledge/` | 运行型示例 | `deep agent` 项目知识接入任务 |
-| `14-verification-loop/` | 运行型示例 | `coding agent` 验证策略任务 |
-| `15-observability-and-control/` | 运行型示例 | `deep agent` 可控性说明任务 |
-| `16-when-to-use-langgraph/` | 轻量型示例 | `basic agent` 架构边界判断任务 |
-| `17-build-your-own-specialized-agent/` | 轻量型示例 | `basic agent` 垂直 agent 设计任务 |
+| `03` | `03-first-agent/` | 最小 `LangChain v1` agent |
+| `06` | `06-minimum-capabilities/` | 最小可用 coding agent |
+| `09` | `09-first-deep-coding-agent/` | 第一个 `Deep Agents` coding agent |
 
-## 当前目标
+## 全部章节示例
 
-当前已经确保：
+| 章节 | 目录 | 类型 | 说明 |
+|---|---|---|---|
+| `01` | `01-what-is-a-coding-agent/` | 轻量示例 | coding agent 概念与最小闭环 |
+| `02` | `02-how-to-choose-the-stack/` | 轻量示例 | 技术栈分工与选型判断 |
+| `03` | `03-first-agent/` | 主线示例 | 最小 agent |
+| `04` | `04-tool-calling/` | 复用示例 | 观察工具调用边界 |
+| `05` | `05-why-general-agents-fail-at-coding/` | 复用示例 | 解释失败模式 |
+| `06` | `06-minimum-capabilities/` | 主线示例 | 最小 coding agent 闭环 |
+| `07` | `07-project-structure/` | 复用示例 | 工程分层说明 |
+| `08` | `08-why-deepagents/` | 轻量示例 | 为什么主线切到 `Deep Agents` |
+| `09` | `09-first-deep-coding-agent/` | 主线示例 | deep agent 主线起点 |
+| `10` | `10-planning/` | 复用示例 | planning 作为任务脚手架 |
+| `11` | `11-filesystem-context/` | 复用示例 | 搜索优先与局部读取 |
+| `12` | `12-subagents/` | 复用示例 | subagents 的职责边界 |
+| `13` | `13-project-knowledge/` | 复用示例 | 项目知识接入 |
+| `14` | `14-verification-loop/` | 复用示例 | 验证闭环与完成标准 |
+| `15` | `15-observability-and-control/` | 复用示例 | 可见性、审批与人类接管 |
+| `16` | `16-when-to-use-langgraph/` | 轻量示例 | LangGraph 升级边界 |
+| `17` | `17-build-your-own-specialized-agent/` | 轻量示例 | 垂直 agent 方案设计 |
 
-- `01-17` 每章都有示例入口目录
-- `01-17` 每章都可以直接运行
-- 主线关键章节仍然保持更强的独立示例形态
+## 和源码的关系
+
+这些示例不是彼此孤立的。
+
+它们主要复用三层共享实现：
+
+- `src/agents/`
+- `src/deep-agents/`
+- `src/shared/`
+
+如果你已经在读正文，推荐和下面这些入口一起对照：
+
+- [src/README.md](/Users/cloudyan/.codex/worktrees/be22/learn-claude-code/deepagents/src/README.md)
+- [docs/README.md](/Users/cloudyan/.codex/worktrees/be22/learn-claude-code/deepagents/docs/README.md)
+
+## 当前状态
+
+当前已经完成：
+
+- 每章一个示例目录
+- 每章一个可执行入口
+- 每章统一的 README 结构
+
+后续更值得继续增强的方向是：
+
+- 把部分复用示例升级成更强的独立 runnable demo
+- 给主线示例补更贴近真实仓库任务的默认任务
+- 继续提升示例与正文章节之间的双向链接
