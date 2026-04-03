@@ -82,6 +82,7 @@ node src/index.ts
 | 类型 | 说明 |
 |---|---|
 | 主线示例 | 真正承载主战场的核心示例 |
+| 机制型独立 demo | 单独突出某一章核心机制的可执行示例 |
 | 复用示例 | 复用现有 agent 能力来说明新的章节主题 |
 | 轻量示例 | 更偏解释、比较、设计判断，但仍可执行 |
 
@@ -118,6 +119,19 @@ npm run dev:12
 | `06` | `06-minimum-capabilities/` | 最小可用 coding agent |
 | `09` | `09-first-deep-coding-agent/` | 第一个 `Deep Agents` coding agent |
 
+## 机制型独立 Demo
+
+下面这些章节已经从普通“可执行入口”升级成了更强的独立 demo：
+
+| 章节 | 目录 | 机制重点 |
+|---|---|---|
+| `10` | `10-planning/` | 计划生成、读取计划、基于计划推进 |
+| `11` | `11-filesystem-context/` | `list -> search -> read -> summarize` |
+| `12` | `12-subagents/` | `researcher` 与 `reviewer` 子代理编排 |
+| `14` | `14-verification-loop/` | 先制定验证策略，再实际执行验证脚本 |
+
+如果你想看“章节核心机制被单独演示出来”的示例，优先跑这几个。
+
 ## 全部章节示例
 
 | 章节 | 目录 | 类型 | 说明 |
@@ -131,11 +145,11 @@ npm run dev:12
 | `07` | `07-project-structure/` | 复用示例 | 工程分层说明 |
 | `08` | `08-why-deepagents/` | 轻量示例 | 为什么主线切到 `Deep Agents` |
 | `09` | `09-first-deep-coding-agent/` | 主线示例 | deep agent 主线起点 |
-| `10` | `10-planning/` | 复用示例 | planning 作为任务脚手架 |
-| `11` | `11-filesystem-context/` | 复用示例 | 搜索优先与局部读取 |
-| `12` | `12-subagents/` | 复用示例 | subagents 的职责边界 |
+| `10` | `10-planning/` | 机制型独立 demo | planning 作为任务脚手架 |
+| `11` | `11-filesystem-context/` | 机制型独立 demo | 搜索优先与局部读取 |
+| `12` | `12-subagents/` | 机制型独立 demo | subagents 的职责边界 |
 | `13` | `13-project-knowledge/` | 复用示例 | 项目知识接入 |
-| `14` | `14-verification-loop/` | 复用示例 | 验证闭环与完成标准 |
+| `14` | `14-verification-loop/` | 机制型独立 demo | 验证闭环与完成标准 |
 | `15` | `15-observability-and-control/` | 复用示例 | 可见性、审批与人类接管 |
 | `16` | `16-when-to-use-langgraph/` | 轻量示例 | LangGraph 升级边界 |
 | `17` | `17-build-your-own-specialized-agent/` | 轻量示例 | 垂直 agent 方案设计 |
@@ -162,9 +176,10 @@ npm run dev:12
 - 每章一个示例目录
 - 每章一个可执行入口
 - 每章统一的 README 结构
+- 部分关键章节已经升级成机制型独立 demo
 
 后续更值得继续增强的方向是：
 
-- 把部分复用示例升级成更强的独立 runnable demo
+- 继续把更多复用示例升级成更强的独立 runnable demo
 - 给主线示例补更贴近真实仓库任务的默认任务
 - 继续提升示例与正文章节之间的双向链接
