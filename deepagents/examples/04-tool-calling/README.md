@@ -41,7 +41,7 @@ pnpm dev:04 -- "请先调用 get_time，再使用 echo 原样返回“tool calli
 最适合和下面这些内容一起对照看：
 
 - [03-first-agent](/deepagents/examples/03-first-agent/README.md)
-- [src/tools/index.ts](/Users/cloudyan/data/code/coding-agent/learn-claude-code/deepagents/src/tools/index.ts)
+- [src/tools/index.ts](/deepagents/src/tools/index.ts)
 
 ## 环境变量
 

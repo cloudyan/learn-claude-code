@@ -83,6 +83,10 @@ node src/index.ts
 |---|---|
 | 主线示例 | 真正承载主战场的核心示例 |
 | 机制型独立 demo | 单独突出某一章核心机制的可执行示例 |
+| 对比型独立 demo | 用两轮或多轮对比直接体现差异 |
+| 流程型独立 demo | 显式展示任务流转、门控或状态推进 |
+| 决策型独立 demo | 用多个场景逐个判断边界和升级条件 |
+| 蓝图型独立 demo | 输出结构化方案，作为落地起点 |
 | 复用示例 | 复用现有 agent 能力来说明新的章节主题 |
 | 轻量示例 | 更偏解释、比较、设计判断，但仍可执行 |
 
@@ -128,7 +132,11 @@ npm run dev:12
 | `10` | `10-planning/` | 计划生成、读取计划、基于计划推进 |
 | `11` | `11-filesystem-context/` | `list -> search -> read -> summarize` |
 | `12` | `12-subagents/` | `researcher` 与 `reviewer` 子代理编排 |
+| `13` | `13-project-knowledge/` | 不带项目知识与带项目知识两轮输出对比 |
 | `14` | `14-verification-loop/` | 先制定验证策略，再实际执行验证脚本 |
+| `15` | `15-observability-and-control/` | 任务 intake、审批门控与继续执行流程 |
+| `16` | `16-when-to-use-langgraph/` | 多场景逐个判断是否升级到 `LangGraph` |
+| `17` | `17-build-your-own-specialized-agent/` | 输出结构化垂直 agent 蓝图 |
 
 如果你想看“章节核心机制被单独演示出来”的示例，优先跑这几个。
 
@@ -148,11 +156,11 @@ npm run dev:12
 | `10` | `10-planning/` | 机制型独立 demo | planning 作为任务脚手架 |
 | `11` | `11-filesystem-context/` | 机制型独立 demo | 搜索优先与局部读取 |
 | `12` | `12-subagents/` | 机制型独立 demo | subagents 的职责边界 |
-| `13` | `13-project-knowledge/` | 复用示例 | 项目知识接入 |
+| `13` | `13-project-knowledge/` | 对比型独立 demo | 项目知识接入 |
 | `14` | `14-verification-loop/` | 机制型独立 demo | 验证闭环与完成标准 |
-| `15` | `15-observability-and-control/` | 复用示例 | 可见性、审批与人类接管 |
-| `16` | `16-when-to-use-langgraph/` | 轻量示例 | LangGraph 升级边界 |
-| `17` | `17-build-your-own-specialized-agent/` | 轻量示例 | 垂直 agent 方案设计 |
+| `15` | `15-observability-and-control/` | 流程型独立 demo | 可见性、审批与人类接管 |
+| `16` | `16-when-to-use-langgraph/` | 决策型独立 demo | LangGraph 升级边界 |
+| `17` | `17-build-your-own-specialized-agent/` | 蓝图型独立 demo | 垂直 agent 方案设计 |
 
 ## 和源码的关系
 
@@ -176,7 +184,7 @@ npm run dev:12
 - 每章一个示例目录
 - 每章一个可执行入口
 - 每章统一的 README 结构
-- 部分关键章节已经升级成机制型独立 demo
+- 后半段关键章节已经逐步升级成更贴近主题的独立 demo
 
 后续更值得继续增强的方向是：
 
